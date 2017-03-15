@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>变量作用域和内存问题</title>
+</head>
+<body>
+<h2>一、基本类型和引用类型</h2>
+<div class="list_1">undefined</div>
+<div class="list_2">null</div>
+<div class="list_3">boolean <span>true</span>、<span>false</span></div>
+<div class="list_4">number</div>
+<div class="list_5">string</div>
+<h2>二、引用类型</h2>
+<div class="list_1">Object</div>
+<div class="list_2">Array</div>
+<div class="list_3">Date</div>
+<div class="list_4">RegExp</div>
+<div class="list_5">Function</div>
+<script>
+    var person = new Object();
+    //console.log(person instanceof Object);
+    person.name = "小伙子哦";
+    console.log("姓名："+person.name); // 小伙子哦
+
+    var name = "大灰猫";
+    name.age = 27;
+    console.log("大灰猫的年龄："+name.age); //undefined
+    //这里得出一个结论：我们不能给基本类型的值添加属性
+    //检测基本数据类型可以用typeof，但检测引用类型instanceof 例如：console.log(person instanceof Object);
+
+</script>
+</body>
+</html>

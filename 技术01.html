@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8"/>
+        <title>技术知识点（一）创建一个闭包</title>
+        <style>
+            ul li {list-style: none;}
+        </style>
+    </head>
+    <body>
+    <!--关于快捷键的一些简单的用法-->
+    <!--div#conten>h1.logo+p.list*5-->
+    <div id="conten">
+        <h1 class="logo"></h1>
+        <p class="list"></p>
+        <p class="list"></p>
+        <p class="list"></p>
+        <p class="list"></p>
+        <p class="list"></p>
+    </div>
+
+    <!--div#con.box.warp-->
+    <div id="con" class="box warp"></div>
+
+    <!--ul#nav>li*5>a>img-->
+    <ul id="nav1">
+        <li><a href=""><img src="" alt=""></a></li>
+        <li><a href=""><img src="" alt=""></a></li>
+        <li><a href=""><img src="" alt=""></a></li>
+        <li><a href=""><img src="" alt=""></a></li>
+        <li><a href=""><img src="" alt=""></a></li>
+    </ul>
+
+    <!--ul#nav>li.item_$*5-->
+    <ul id="nav2">
+        <li class="item_1"></li>
+        <li class="item_2"></li>
+        <li class="item_3"></li>
+        <li class="item_4"></li>
+        <li class="item_5"></li>
+    </ul>
+    <!-- div#head>img.logo>ul#nav>li*4>a -->
+    <div id="head"><img src="" alt="" class="logo">
+        <ul id="nav3">
+            <li><a href=""></a></li>
+            <li><a href=""></a></li>
+            <li><a href=""></a></li>
+            <li><a href=""></a></li>
+        </ul>
+    </div>
+
+    <script type="text/javascript">
+        function cc() {
+            var age = 18;
+            var name = "大灰猫";
+            var sex = "man";
+            function hobby() {
+                var work = "程序员";
+                var single = "他还是一个单身狗";
+                console.log("姓名: "+name +" 年龄:"+ age+" 性别:"+ sex+" 工作: "+work+" 是否有女朋友:"+ single);
+            }
+            return hobby;
+            console.log(cc.name);
+        }
+        var xiaobai =cc();
+        xiaobai();
+    </script>
+
+    </body>
+</html>

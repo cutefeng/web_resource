@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>稳妥构造函数模式</title>
+</head>
+<body>
+<script>
+    function Person(name,age,job) {
+        //创建要返回的对象
+        var o = new Object();
+        //可以在这里定义私有变量和函数
+
+        //添加方法
+        o.sayName = function () {
+            alert(name);
+        };
+        //返回对象
+        return o;
+    }
+    var friends = new Person("刘德华",57,"歌手/演员");
+    friends.sayName();
+</script>
+</body>
+</html>

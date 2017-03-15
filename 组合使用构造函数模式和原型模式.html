@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>组合使用构造函数模式和原型模式</title>
+</head>
+<body>
+<script>
+    function Person(name,age,job) {
+        this.name = name;
+        this.age = age;
+        this.job = job;
+        this.friends = ["Jieke","Cisen"];
+    }
+    Person.prototype = {
+        constructor:Person,
+        sayName:function () {
+            alert(this.name);
+        }
+    }
+    var person1 = new Person("NIka",33,"教授");
+    var person2 = new　Person("小李子",22,"教师");
+    person1.friends.push("小王");
+    console.log(person1.friends);
+    console.log(person2.friends);
+    console.log(person1.friends === person2.friends);
+    console.log(person1.sayName === person2.sayName);
+</script>
+<p>
+    在这个例子中，实例属性都是在构造函数中定义的，而由所有实例共享的属性constructor 和方
+    法sayName()则是在原型中定义的。而修改了person1.friends（向其中添加一个新字符串），并不
+    会影响到person2.friends，因为它们分别引用了不同的数组。
+    这种构造函数与原型混成的模式，是目前在ECMAScript 中使用最广泛、认同度最高的一种创建自
+    定义类型的方法。可以说，这是用来定义引用类型的一种默认模式。
+</p>
+</body>
+</html>

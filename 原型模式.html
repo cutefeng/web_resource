@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>原型模式</title>
+</head>
+<body>
+<script>
+    //原型模式  =================================
+    function Person(){}
+    Person.prototype.name = "jieSEN";
+    Person.prototype.age = 33;
+    Person.prototype.job = "董事长";
+    Person.prototype.sayName = function(){
+        console.log(this.name);
+    }
+    var person1 = new Person();
+    person1.sayName();
+    var person2 = new Person();
+    person2.sayName();
+
+    console.log(person1.sayName == person2.sayName);
+</script>
+<p>
+    我们将sayName()方法和所有属性直接添加到了Person 的prototype 属性中，构造函数
+    变成了空函数。即使如此，也仍然可以通过调用构造函数来创建新对象，而且新对象还会具有相同的属
+    性和方法。但与构造函数模式不同的是，新对象的这些属性和方法是由所有实例共享的。换句话说，
+    person1 和person2 访问的都是同一组属性和同一个sayName()函数。要理解原型模式的工作原理，
+    必须先理解ECMAScript 中原型对象的性质。
+</p>
+
+<script>
+    function Person(){}
+    Person.prototype.sayName = function(){
+        console.log(this.name);
+    }
+    Person.prototype.age = 35;
+    Person.prototype.name = "NIck";
+        Person.prototype.job = "市委书记";
+    var keys = Object.keys(Person.prototype);
+    console.log(keys);
+    var p1 = new Person();
+    p1.name = "葫芦娃";
+    p1.age = 31;
+    var p1keys = Object.keys(p1);
+    console.log(p1keys);
+    // 更简单的原型语法  ====================================
+    function Person2() {
+
+    }
+    Person2.trototype = {
+        name:"Jierui",
+        age:34,
+        job:"mathTeacher",
+        sayName:function(){
+            alert(this.name);
+        }
+    }
+    var friend = new Person2();
+    alert(friend instanceof Object);
+</script>
+</body>
+</html>

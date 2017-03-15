@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8"/>
+	<title>闭包</title>
+</head>
+<body>
+<script type="text/javascript">
+	function cc(){
+		var name="carol";
+		var six = "man";
+		var age = 21;
+		function hobby(){
+			var soprt=["篮球666","桌球","爬山","骑车","游泳"];
+			console.log("最喜欢的运动："+soprt[0]);
+			console.log("年龄："+age+" 姓名："+name+"性别："+six);
+		}
+		return hobby;
+	}
+	var xx= cc();
+	xx();
+</script>
+</body>
+</html>

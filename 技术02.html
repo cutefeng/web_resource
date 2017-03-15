@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>什么是innerHTML </title>
+</head>
+<body>
+
+<div id="con">Hello 大家好！！！！</div>
+<script type="text/javascript">
+    function getInnerHTML(whosay,me)
+    {
+        var num1 = document.getElementById("con").innerHTML; //取值
+        console.log("我说："+num1);
+
+        var num2 = num1.innerHTML=whosay+"大家好，才是真的好! "+me+"哈哈哈！！！"; //赋值
+        console.log(num2);
+    }
+    getInnerHTML("好迪打广告说：","我：");
+    </script>
+</body>
+</html>

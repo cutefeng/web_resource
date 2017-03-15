@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>js面向对象</title>
+</head>
+<body>
+<script>
+    //创建一个Object 的实例
+    var person = new Object();
+    person.name = "Carol";
+    person.age = 21;
+    person.job = "Teacher";
+    person.sayName = function(){
+        console.log(this.name);
+    }
+    person.sayName();
+    //对象字面量语法
+    var person = {
+        name:"qikagou",
+        age:"24",
+        job:"教授",
+        sayName:function(){
+            console.log(this.name);
+        }
+    };
+    person.sayName();
+    //工厂模式======================================
+    function createPerson(name,age,job){
+        var o = new Object();
+        o.name = name;
+        o.age = age;
+        o.job = job;
+        o.sayName = function(){
+            console.log(this.name);
+        }
+        return o;
+    }
+    var person1 = createPerson("LaNa","23","科学家");
+    var person2 = createPerson("Jimi","24","工程师");
+    console.log(person1);
+    console.log(person2);
+    //构造函数模式 =======================================
+    // 构造函数尽量实用大写的字母开头
+    //与工厂模式不同的是没有   显示的创建对象  直接将属性和方法赋值给了this对象  没有return 语句
+
+    function Person(name,age,job){
+        this.name = name;
+        this.age = age;
+        this.job = job;
+        this.sayName = function(){
+            console.log(this.name);
+        }
+    }
+    var person3 = new Person("奥巴马",55,"总统");
+    var person4 = new Person("普京",56,"总统");
+    person3.sayName();
+    person4.sayName();
+
+    //当作构造函数调用
+    var person5 = new Person("露西",20,"modol");
+    person5.sayName();
+    //作为普通函数调用
+    Person("王健林",60,"Boss");
+    window.sayName(); //添加都window
+    //构造函数与普通函数不同的是 构造函数要new一下函数名 才能继承其中的属性和方法
+
+    //在另一个对象中调用
+    var o = new Object();
+    //Person.call(o,"任正非",78,"总裁");
+    Person.apply(o,["任正非",78,"总裁"]);
+    o.sayName();
+
+    //=========================================
+    //构造函数的问题  使用构造函数的主要问题，就是每个方法都要在每个 实例上重新创建一遍。，person1 和person2 都有一个名为sayName()的方法，但那
+   // 两个方法不是同一个Function 的实例。不要忘了——ECMAScript 中的函数是对象，因此每定义一个 函数，也就是实例化了一个对象。
+
+    function CPerson(name,age,job){
+        this.name = name;
+        this.age = age;
+        this.job = job;
+        this.sayName = sayName;
+    }
+    function sayName(){
+        alert(this.name);
+    }
+    var Person1 = new CPerson("乔布斯","77","CEO");
+    Person1.sayName();
+    var person2 = new CPerson("马云","60","联合国秘书长助理");
+    person2.sayName();
+</script>
+</body>
+</html>

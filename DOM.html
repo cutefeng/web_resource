@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>DOM</title>
+</head>
+<body>
+
+<script>
+    //获取文档标题
+    var originalTitle = document.title;
+    //设置文档标题
+    document.title = "New page title";
+    //取得完整的URL
+    var url = document.URL;
+    //取得域名
+    var domain = document.domain;
+    //取得来源页面的URL
+    var referrer = document.referrer;
+    console.log("取得完整的URL："+url +"取得域名："+domain +"取得来源页面的URL："+referrer);//+"取得完整的URL"+domain+"取得来源页面的URL"+referrer
+</script>
+</body>
+</html>
